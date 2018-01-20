@@ -6,7 +6,7 @@ $(document).ready(function() {
   var currentCode = document.getElementById('editor').innerHTML;
 
   var flask = new CodeFlask;
-  flask.run('#editor', { language: 'json' });
+  flask.run('#editor', { language: 'javascript' });
 
   flask.onUpdate(function(code) {
     currentCode = code;
