@@ -9,9 +9,27 @@
     <div class="button active">POST</div>
     <div class="button">GET</div>
   </div>
-  <div id="route-container"></div>
-  <div id="editor-container">
-    <div id="editor">var hello = "bla";</div>
+  <div id="route-container">
+    <span>Route:</span>
+    <select name="route">
+      <option value="tomato">api/ipsum/</option>
+      <option value="barbeque">api/ipsums/</option>
+    </select>
   </div>
-  <div id="response-container"></div>
+  <div id="editor-container">
+    <div id="editor"></div>
+    <div id="editor-bottom">
+      <div>request</div>
+      <div class="button">send</div>
+    </div>
+  </div>
+  <script type="text/javascript">prepareEditor();</script>
+  <div id="response-container">
+    <div id="response">
+      <p>bla</p>
+    </div>
+    <div id="response-bottom">
+      <span>response</span>
+    </div>
+  </div>
 </div>

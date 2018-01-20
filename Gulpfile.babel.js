@@ -74,7 +74,7 @@ gulp.task('javascript', function () {
   .pipe(source('master.min.js'))
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
-  // .pipe(uglify())
+  .pipe(uglify())
   .pipe(gulp.dest(OUTPUT_PATH));
 });
 
