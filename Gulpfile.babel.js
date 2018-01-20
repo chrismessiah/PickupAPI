@@ -41,6 +41,8 @@ gulp.task('compile-sass', function() {
 
 gulp.task('concat-css',['compile-sass'], function() {
   return gulp.src([
+    'node_modules/prismjs/themes/prism.css',
+    'node_modules/codeflask/src/codeflask.css',
     `${OUTPUT_PATH}/master.sass.css`,
   ])
   .pipe(concat('master.css'))
