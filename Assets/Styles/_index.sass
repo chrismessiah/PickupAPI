@@ -1,0 +1,35 @@
+$text_green: #2FB37F
+
+html,
+body
+  background-color: #F6F9FC
+.index-container
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  h1
+    color: $text_green
+  .buttons
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 400px
+    .button
+      background-color: #F1F4F7
+      color: #CCCED1
+      padding: 10px
+      border-radius: 4px
+      margin: 20px
+      font-weight: 600
+      &.active
+        color: #2FB37F
+        background-color: white
+        box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
+  width: 100vw
+  max-width: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  h1
+    font-weight: 500
