@@ -10,7 +10,7 @@
     <div class="button">GET</div>
   </div>
   <div id="route-container">
-    <span>Route:</span>
+    <span>route:</span>
     <select name="route">
       <option value="tomato">api/ipsum/</option>
       <option value="barbeque">api/ipsums/</option>
@@ -20,13 +20,14 @@
     <div id="editor"></div>
     <div id="editor-bottom">
       <div>request</div>
-      <div class="button">send</div>
+      <div id="code-invalid">request invalid!</div>
+      <div id="send-button" class="button">send</div>
     </div>
   </div>
   <script type="text/javascript">prepareEditor();</script>
-  <div id="response-container">
+  <div id="response-container" class="hidden">
     <div id="response">
-      <p>bla</p>
+      <p id="response-text">bla</p>
     </div>
     <div id="response-bottom">
       <span>response</span>

@@ -39,6 +39,8 @@ body
     align-items: center
     padding-left: 10px
     span
+      font-family: 'Open Sans', sans-serif
+      color: #414770
       font-weight: bold
       font-size: 18px
       margin: 10px
@@ -61,11 +63,9 @@ body
     margin-bottom: 50px
     #editor,
     #editor-bottom
-      width: 400px
+      width: 80vw
+      max-width: 700px
       height: 250px
-    #editor
-      &.CodeFlask
-        overflow: auto
     #editor-bottom
       height: 40px
       background-color: #F6F9FC
@@ -77,7 +77,14 @@ body
       div:first-child
         margin-left: 10px
         font-weight: 700
-      div:last-child
+      #code-invalid
+        display: none
+        color: red
+        font-weight: 600
+        &.show
+          display: block
+      #send-button
+        @extend .linear-transition
         height: inherit
         padding-left: 10px
         padding-right: 10px
@@ -88,14 +95,23 @@ body
         display: flex
         justify-content: center
         align-items: center
+        &:not(.inactive)
+          &:hover
+            background-color: #248f65
+        &.inactive
+          background-color: #f1f4f7 !important
+          color: #ccced1 !important
   #response-container
     background-color: #3FB78A
     border-radius: 4px
     box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
     margin-bottom: 50px
+    &.hidden
+      display: none
     #response,
     #response-bottom
-      width: 400px
+      width: 80vw
+      max-width: 700px
       height: 250px
     #response
       p
@@ -115,6 +131,7 @@ body
       display: flex
       align-items: center
       span
+        font-family: 'Open Sans', sans-serif
         color: white
         font-weight: bold
         margin-left: 10px
