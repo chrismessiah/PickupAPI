@@ -8,11 +8,11 @@ module.exports = function() {
 
   var editorString = JSON.stringify(window.editorCodeObject, undefined, 2);
 
-  var flask = new window.CodeFlask;
-  flask.run('#editor', { language: 'json' });
-  flask.update(editorString);
+  window.flask = new window.CodeFlask;
+  window.flask.run('#editor', { language: 'json' });
+  window.flask.update(editorString);
 
-  flask.onUpdate(function(code) {
+  window.flask.onUpdate(function(code) {
     try {
       JSON.parse(code, undefined, 2)
       window.editorCodeObject = JSON.parse(code, undefined, 2);
