@@ -1,5 +1,9 @@
 $green: #2FB37F
 
+@keyframes hvr-pop
+  50%
+    transform: scale(1.2)
+
 html,
 body
   background-color: #F6F9FC
@@ -25,6 +29,11 @@ body
       border-radius: 4px
       margin: 20px
       font-weight: 600
+      &:hover
+        animation-name: hvr-pop
+        animation-duration: 0.2s
+        animation-timing-function: linear
+        animation-iteration-count: 1
       &.active
         color: #2FB37F
         background-color: white
@@ -49,7 +58,7 @@ body
       cursor: pointer
       margin-right: 10px
       background: transparent
-      width: 100px
+      width: 200px
       height: inherit
       font-size: 16px
       border: none
