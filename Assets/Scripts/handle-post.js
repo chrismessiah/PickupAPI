@@ -16,7 +16,7 @@ module.exports = function() {
     return;
   }
 
-  $.post('api/ipsums',sendObj, function(data, status){
+  $.post(window.currentRoute, sendObj, function(data, status){
     if (status === 'success') {
       responseText.innerHTML = data || `request OK`;
       responseContainer.classList.remove("hidden");

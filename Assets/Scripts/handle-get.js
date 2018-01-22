@@ -1,7 +1,7 @@
 var scrollTo = require('./scroll-to.js');
 
 module.exports = function() {
-  $.get('api/ipsums', null, function(data, status){
+  $.get(window.currentRoute, null, function(data, status){
     if (status === 'success') {
       console.log(JSON.stringify(data, undefined, 2));
       responseText.innerHTML = (data) ? JSON.stringify(data, undefined, 2) : 'request OK';
