@@ -12,10 +12,11 @@
   <div id="route-container">
     <span>route:</span>
     <select name="route">
-      <option value="tomato">api/ipsum/</option>
-      <option value="barbeque">api/ipsums/</option>
+      <option value="api/ipsum/">api/ipsum/</option>
+      <option value="api/ipsums/">api/ipsums/</option>
     </select>
   </div>
+
   <div id="editor-container">
     <div id="editor"></div>
     <div id="editor-bottom">
@@ -24,10 +25,11 @@
       <div id="send-button" class="button">send</div>
     </div>
   </div>
+  <div id="get-request-button" class="hidden">send request</div>
   <script type="text/javascript">prepareEditor();</script>
   <div id="response-container" class="hidden">
     <div id="response">
-      <p id="response-text">bla</p>
+      <pre id="response-text"></pre>
     </div>
     <div id="response-bottom">
       <span>response</span>

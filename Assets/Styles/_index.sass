@@ -14,6 +14,21 @@ body
   justify-content: center
   align-items: center
   flex-direction: column
+  #get-request-button
+    background-color: $green
+    padding: 10px
+    color: white
+    font-weight: 600
+    font-size: 18px
+    border-radius: 4px
+    cursor: pointer
+    margin-bottom: 20px
+    box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
+    @extend .linear-transition
+    &:hover
+      background-color: #248f65
+    &.hidden
+      display: none
   h1
     color: $green
     font-weight: 500
@@ -66,6 +81,8 @@ body
       -moz-appearance: none
       appearance: none
   #editor-container
+    &.hidden
+      display: none
     background-color: white
     border-radius: 4px
     box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
@@ -117,21 +134,26 @@ body
     margin-bottom: 50px
     &.hidden
       display: none
-    #response,
     #response-bottom
       width: 80vw
       max-width: 700px
       height: 250px
     #response
-      p
+      width: 80vw
+      max-width: 700px
+      min-height: 150px
+      max-height: 600px
+      pre
         color: white
+        font-size: 14px
         margin-top: 10px
         margin-left: 10px
         margin-right: 10px
         margin-bottom: 0
-        height: inherit
+        min-height: 150px
+        max-height: 600px
         word-wrap: break-word
-        overflow-y: scroll
+        overflow: scroll
     #response-bottom
       height: 40px
       background-color: #6BCDA8

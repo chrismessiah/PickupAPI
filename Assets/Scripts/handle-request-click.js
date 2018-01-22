@@ -1,4 +1,5 @@
 var handlePOST = require('./handle-post.js');
+var handleGET = require('./handle-get.js');
 
 module.exports = function() {
   window.responseContainer = document.getElementById('response-container');
@@ -13,4 +14,8 @@ module.exports = function() {
         console.log(`ERROR UNKNOWN REQUEST METHOD: ${window.requestMetod}`);
     }
   });
+
+  $('#get-request-button').click(function() {
+    handleGET();
+  })
 }

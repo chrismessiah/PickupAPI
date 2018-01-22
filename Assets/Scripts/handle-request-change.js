@@ -1,6 +1,9 @@
 module.exports = function() {
   var parent = $('#request-button-mother');
 
+  var editorContainer = $('#editor-container');
+  var getRequestButton = $('#get-request-button');
+
   var allButtons = [
     parent.find("#GET"),
     parent.find("#POST"),
@@ -20,6 +23,14 @@ module.exports = function() {
     $(button).click(function() {
       window.requestMetod = this.innerHTML;
       setNewActiveButton(this.innerHTML);
+      window.responseContainer.classList.add("hidden");
+      if (window.requestMetod === "GET") {
+        editorContainer.addClass('hidden');
+        getRequestButton.removeClass('hidden');
+      } else {
+        editorContainer.removeClass('hidden');
+        getRequestButton.addClass('hidden');
+      }
     })
   })
 }
