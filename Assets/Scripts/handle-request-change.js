@@ -7,6 +7,8 @@ module.exports = function() {
   var allButtons = [
     parent.find("#GET"),
     parent.find("#POST"),
+    parent.find("#PUT"),
+    parent.find("#DELETE"),
   ];
 
   var setNewActiveButton = function(newActive) {
@@ -30,6 +32,18 @@ module.exports = function() {
       } else {
         editorContainer.removeClass('hidden');
         getRequestButton.addClass('hidden');
+
+        switch (window.requestMetod) {
+          case "POST":
+            window.updateFlask(window.flaskPOSTstandard);
+            break;
+          case "PUT":
+            window.updateFlask(window.flaskPUTstandard);
+            break;
+          case "DELETE":
+            window.updateFlask(window.flaskDELETEstandard);
+            break;
+        }
       }
     })
   })

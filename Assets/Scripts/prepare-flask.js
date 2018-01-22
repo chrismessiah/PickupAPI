@@ -3,20 +3,38 @@ module.exports = function() {
   var codeInvalidEl = document.getElementById('code-invalid');
   var sendButtonEl = document.getElementById('send-button');
 
-  window.editorCodeObject.title = "Ulysses";
-  window.editorCodeObject.body = "Yet all experience is an arch wherethro'; Gleams that untravell'd world, whose margin fades For ever and for ever when I move";
+  window.updateFlask = function(json) {
+    window.editorCodeObject = {};
+    for (var key in json) {
+        if (json.hasOwnProperty(key)) {
+           window.editorCodeObject[key] = json[key];
+        }
+    }
+    window.editorString = JSON.stringify(window.editorCodeObject, undefined, 2);
+    window.flask.update(window.editorString);
+  }
 
-  var editorString = JSON.stringify(window.editorCodeObject, undefined, 2);
+  window.getFlaskFields = function(fields) {
+    var ret = {};
+    fields.forEach(function(field) {
+      if (!window.editorCodeObject[field]) {
+        throw `Field "${field}" missing in request!`;
+      }
+      ret[field] = window.editorCodeObject[field];
+    });
+    return ret;
+  }
 
   window.flask = new window.CodeFlask;
   window.flask.run('#editor', { language: 'json' });
-  window.flask.update(editorString);
+
+  window.updateFlask(flaskPOSTstandard);
 
   window.flask.onUpdate(function(code) {
     try {
       JSON.parse(code, undefined, 2)
       window.editorCodeObject = JSON.parse(code, undefined, 2);
-      editorString = code;
+      window.editorString = code;
       codeInvalidEl.classList.remove("show");
       sendButtonEl.classList.remove("inactive");
       window.requestInvalid = false;

@@ -41,22 +41,21 @@ namespace DotNetApp.Controllers
             _context.SaveChanges();
         }
 
-        // PUT api/Ipsums/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromForm] Ipsum Ipsum)
+        // PUT api/Ipsums
+        [HttpPut()]
+        public void Put([FromForm] Ipsum Ipsum)
         {
-            Ipsum.Id = id; // Ensure an id is attached
             _context.Ipsums.Update(Ipsum);
             _context.SaveChanges();
         }
 
         // DELETE api/Ipsums/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete()]
+        public void Delete([FromForm] Ipsum Ipsum)
         {
-                // Check if element exists
-            if ( _context.Ipsums.Where(t => t.Id == id).Count() > 0 ) {
-                _context.Ipsums.Remove(_context.Ipsums.First(t => t.Id == id));
+            // Check if element exists
+            if ( _context.Ipsums.Where(t => t.Id == Ipsum.Id).Count() > 0 ) {
+                _context.Ipsums.Remove(_context.Ipsums.First(t => t.Id == Ipsum.Id));
                 _context.SaveChanges();
             }
         }
