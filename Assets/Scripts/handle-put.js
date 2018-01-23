@@ -1,14 +1,14 @@
 var scrollTo = require('./scroll-to.js');
 
-module.exports = function() {
+module.exports = function(route) {
   try {
-    var sendObj = getFlaskFields(['id', 'title', 'body']);
+    var sendObj = getFlaskFields(['title', 'body']);
   } catch (e) {
     alert(e)
     return;
   }
 
-  $.ajax(window.currentRoute, {
+  $.ajax(route, {
     type: 'PUT',
     data: sendObj,
     success: function(data) {

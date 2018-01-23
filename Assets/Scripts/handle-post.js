@@ -1,6 +1,6 @@
 var scrollTo = require('./scroll-to.js');
 
-module.exports = function() {
+module.exports = function(route) {
   try {
     var sendObj = getFlaskFields(['title', 'body']);
   } catch (e) {
@@ -8,7 +8,7 @@ module.exports = function() {
     return;
   }
 
-  $.post(window.currentRoute, sendObj, function(data, status){
+  $.post(route, sendObj, function(data, status){
     if (status === 'success') {
       responseText.innerHTML = data || `request OK`;
       responseContainer.classList.remove("hidden");

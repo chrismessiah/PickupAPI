@@ -53,12 +53,17 @@ body
         color: #2FB37F
         background-color: white
         box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
-  #route-container
+  #route-container,
+  #param-container
+    &.hidden
+      display: none
     background-color: white
     border-radius: 4px
     box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
     margin-bottom: 20px
     width: 300px
+    &#param-container
+      width: 150px
     display: flex
     align-items: center
     padding-left: 10px
@@ -68,11 +73,10 @@ body
       font-weight: bold
       font-size: 18px
       margin: 10px
-    select
+    select,
+    input
       outline: none
-      cursor: pointer
       margin-right: 10px
-      background: transparent
       width: 200px
       height: inherit
       font-size: 16px
@@ -80,6 +84,12 @@ body
       -webkit-appearance: none
       -moz-appearance: none
       appearance: none
+      padding: 5px
+      background-color: #f7f7f7
+    input
+      width: 80px
+    select
+      cursor: pointer
   #editor-container
     &.hidden
       display: none

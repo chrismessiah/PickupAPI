@@ -12,6 +12,7 @@ window.requestInvalid = false;
 window.requestMetod = "POST";
 window.currentRoute = "api/ipsums";
 window.editorCodeObject = {};
+window.requestParams = {};
 
 window.flaskPOSTstandard = {
   title: "Ulysses",
@@ -22,10 +23,6 @@ window.flaskPUTstandard = {
   id: 10,
   title: "Ulysses",
   body: "Yet all experience is an arch wherethro'; Gleams that untravell'd world, whose margin fades For ever and for ever when I move",
-};
-
-window.flaskDELETEstandard = {
-  id: 10
 };
 
 $(document).ready(function() {
