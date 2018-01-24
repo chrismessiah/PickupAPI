@@ -1,6 +1,6 @@
 var scrollTo = require('./scroll-to.js');
 
-module.exports = function(route) {
+module.exports = function(route, errorCallback) {
   $.ajax(route, {
     type: 'DELETE',
     success: function(data) {
@@ -8,8 +8,10 @@ module.exports = function(route) {
       responseContainer.classList.remove("hidden");
       scrollTo('#response-container');
     },
-    error: function() {
+    error: function(jqXHR, textStatus, errorThrown) {
       responseContainer.classList.add("hidden");
+      var message = `Error ${jqXHR.status}: ${errorThrown}`
+      errorCallback(message);
     }
   });
 };

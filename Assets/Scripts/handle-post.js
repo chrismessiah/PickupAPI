@@ -1,6 +1,6 @@
 var scrollTo = require('./scroll-to.js');
 
-module.exports = function(route) {
+module.exports = function(route, errorCallback) {
   try {
     var sendObj = getFlaskFields(['title', 'body']);
   } catch (e) {
@@ -8,13 +8,19 @@ module.exports = function(route) {
     return;
   }
 
-  $.post(route, sendObj, function(data, status){
-    if (status === 'success') {
+  $.ajax(route, {
+    type: 'POST',
+    data: sendObj,
+    success: function(data) {
       responseText.innerHTML = data || `request OK`;
       responseContainer.classList.remove("hidden");
       scrollTo('#response-container');
-    } else {
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
       responseContainer.classList.add("hidden");
+      var message = `Error ${jqXHR.status}: ${errorThrown}`
+      errorCallback(message);
     }
   });
+
 };
