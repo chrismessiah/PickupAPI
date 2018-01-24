@@ -17,7 +17,6 @@ module.exports = function() {
       }
     }
     if (newRoute.indexOf(':') >= 0) {
-      console.log(newRoute);
       throw 'Error: param in route'
     }
     return newRoute;

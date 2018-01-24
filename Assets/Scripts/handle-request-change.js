@@ -1,8 +1,45 @@
+var updateRoute = require('./update-route.js');
+
 module.exports = function() {
   var parent = $('#request-button-mother');
 
   var editorContainer = $('#editor-container');
   var getRequestButton = $('#get-request-button');
+
+  var routeSelect = document.getElementById("route-select");
+  var routeSelectOptions = $('#route-select').children();
+
+  var showAllRoutes = function() {
+    routeSelectOptions.each(function(i) {
+      $(this).removeClass('hidden');
+    })
+    setFirstAvailableRouteActive();
+  }
+
+  var setFirstAvailableRouteActive = function() {
+    var stop = false;
+    routeSelectOptions.each(function(i) {
+      if ( !($(this).hasClass('hidden')) ) {
+        if (!stop) {
+          routeSelect.selectedIndex = i;
+          stop = true;
+        }
+      }
+    })
+  }
+
+  var hideRoutes = function(routesArray) {
+    showAllRoutes();
+    routeSelectOptions.each(function(i) {
+      for (var i = 0; i < routesArray.length; i++) {
+        var route = routesArray[i];
+        if ($(this).html() == route) {
+          $(this).addClass('hidden');
+        }
+      }
+    })
+    setFirstAvailableRouteActive();
+  }
 
   var allButtons = [
     parent.find("#GET"),
@@ -40,19 +77,24 @@ module.exports = function() {
       switch (window.requestMetod) {
         case "GET":
           hideEditor();
+          showAllRoutes();
           break;
         case "POST":
           showEditor();
+          hideRoutes(['api/ipsums/:id'])
           window.updateFlask(window.flaskPOSTstandard);
           break;
         case "PUT":
           showEditor();
+          hideRoutes(['api/ipsums/'])
           window.updateFlask(window.flaskPUTstandard);
           break;
         case "DELETE":
           hideEditor();
+          hideRoutes(['api/ipsums/'])
           break;
       }
+      updateRoute();
     })
   })
 }

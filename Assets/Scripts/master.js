@@ -25,6 +25,8 @@ window.flaskPUTstandard = {
   body: "Yet all experience is an arch wherethro'; Gleams that untravell'd world, whose margin fades For ever and for ever when I move",
 };
 
+window.currentParam = "";
+
 $(document).ready(function() {
   handleRequestClick();
   handleRequestChange();
