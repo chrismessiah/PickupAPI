@@ -5,20 +5,18 @@ using System.ComponentModel.DataAnnotations;
 * Data annotations for tell EntityFramework
 * how to treat the fields of each model.
 */
-namespace DotNetApp.Models
+namespace pickupAPI.Models
 {
-    public class Ipsum
+    public class pickup
     {
         [Key] // Primary Key attribute
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(255)]
-        // [Index(IsUnique=true)]
-        public string Title { get; set; }
-
-        [Required]
         [MaxLength(10000)]
         public string Body { get; set; }
+
+        [Required]
+        public DateTime ShowUntil { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace DotNetApp
+namespace pickupAPI
 {
     public static class Globals
     {

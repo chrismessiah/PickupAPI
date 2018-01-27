@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using DotNetApp.Data;
+using pickupAPI.Data;
 
-namespace DotNetApp
+namespace pickupAPI
 {
     public class Startup
     {
@@ -29,14 +29,14 @@ namespace DotNetApp
             // *********** CONFIGURES POSTRES FOR GIVEN CONTEXTS VIA DEP. INJ. *********
             var connectionString = Globals.env["DOTNET_ENV"] == "Production" ? Globals.env["CONNECTION_STRING"] : Configuration.GetConnectionString("DatabaseUrl");
 
-            services.AddEntityFrameworkNpgsql().AddDbContext<IpsumDbContext>(options => options.UseNpgsql(connectionString));
+            services.AddEntityFrameworkNpgsql().AddDbContext<pickupDbContext>(options => options.UseNpgsql(connectionString));
             // *********** CONFIGURES POSTRES FOR GIVEN CONTEXTS VIA DEP. INJ. *********
 
             services.AddMvc(); // Add framework services.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IpsumDbContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, pickupDbContext context)
         {
             // MIGRATE DATABASE IF PRODUCTION
             if (Globals.env["DOTNET_ENV"] == "Production")
