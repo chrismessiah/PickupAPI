@@ -10,7 +10,7 @@ window.prepareEditor = require('./prepare-flask.js');
 
 window.requestInvalid = false;
 window.requestMetod = "POST";
-window.currentRoute = "api/pickups";
+window.currentRoute = "api/Pickups";
 window.editorCodeObject = {};
 window.requestParams = {};
 

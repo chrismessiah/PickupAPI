@@ -5,60 +5,64 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using pickupAPI;
-using pickupAPI.Data;
-using pickupAPI.Models;
+using PickupAPI;
+using PickupAPI.Data;
+using PickupAPI.Models;
+using PickupAPI.ViewModels;
 
-namespace pickupAPI.Controllers
+namespace PickupAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class pickupsController : Controller
+    public class PickupsController : Controller
     {
         // *********** REQUIRED FOR DATABASE CALLS *********
-        private readonly pickupDbContext _context;
-        public pickupsController(pickupDbContext context) { _context = context; }
+        private readonly PickupDbContext _context;
+        public PickupsController(PickupDbContext context) { _context = context; }
         // *********** REQUIRED FOR DATABASE CALLS *********
 
-        // GET api/pickups
+        // GET api/Pickups
         [HttpGet]
-        public IEnumerable<pickup> Get()
+        public IEnumerable<PickupView> Get()
         {
-            return _context.pickups.ToList();
+            //return _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
+            var list = _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
+            return list.Select(e => new PickupView { Id=e.Id, Body = e.Body});
+            //return _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
         }
 
-        // GET api/pickups/5
+        // GET api/Pickups/5
         [HttpGet("{id}")]
-        public pickup Get(int id)
+        public PickupView Get(int id)
         {
-            return _context.pickups.First(t => t.Id == id);
+            return _context.Pickups.Select(e => new PickupView { Id = e.Id, Body = e.Body }).First(t => t.Id == id);
         }
 
-        // POST api/pickups
+        // POST api/Pickups
         [HttpPost]
-        public void Post([FromForm] pickup pickup)
+        public void Post([FromForm] Pickup Pickup)
         {
-            pickup.ShowUntil = GetShowWindow();
-            _context.pickups.Add(pickup);
+            Pickup.ShowUntil = GetShowWindow();
+            _context.Pickups.Add(Pickup);
             _context.SaveChanges();
         }
 
-        // PUT api/pickups
+        // PUT api/Pickups
         [HttpPut("{id}")]
-        public void Put(int id, [FromForm] pickup pickup)
+        public void Put(int id, [FromForm] Pickup Pickup)
         {
-            pickup.Id = id;
-            pickup.ShowUntil = GetShowWindow();
-            _context.pickups.Update(pickup);
+            Pickup.Id = id;
+            Pickup.ShowUntil = GetShowWindow();
+            _context.Pickups.Update(Pickup);
             _context.SaveChanges();
         }
 
-        // DELETE api/pickups/5
+        // DELETE api/Pickups/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             // Check if element exists
-            if ( _context.pickups.Where(t => t.Id == id).Count() > 0 ) {
-                _context.pickups.Remove(_context.pickups.First(t => t.Id == id));
+            if ( _context.Pickups.Where(t => t.Id == id).Count() > 0 ) {
+                _context.Pickups.Remove(_context.Pickups.First(t => t.Id == id));
                 _context.SaveChanges();
             }
         }
@@ -66,7 +70,7 @@ namespace pickupAPI.Controllers
         private DateTime GetShowWindow()
         {
           DateTime currentTime = DateTime.Now;
-          currentTime = currentTime.AddYears(60);
+          currentTime = currentTime.AddMinutes(60);
           return currentTime;
         }
 
