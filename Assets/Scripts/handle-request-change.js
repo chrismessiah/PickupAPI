@@ -81,17 +81,17 @@ module.exports = function() {
           break;
         case "POST":
           showEditor();
-          hideRoutes(['api/Pickups/:id'])
+          hideRoutes(['api/pickups/:id'])
           window.updateFlask(window.flaskPOSTstandard);
           break;
         case "PUT":
           showEditor();
-          hideRoutes(['api/Pickups/'])
+          hideRoutes(['api/pickups/'])
           window.updateFlask(window.flaskPUTstandard);
           break;
         case "DELETE":
           hideEditor();
-          hideRoutes(['api/Pickups/'])
+          hideRoutes(['api/pickups/'])
           break;
       }
       updateRoute();
