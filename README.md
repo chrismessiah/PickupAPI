@@ -1,4 +1,4 @@
-# PickupAPI
+# pickupAPI
 
 Dockerized .NET Core 2.0.x Razor app boilerplate with Postgres, Gulp, Sass, ES6, custom .env vars and more
 
@@ -46,4 +46,4 @@ This is due to two main reasons.
 ## Notes
 
 * The .NET app will always listen to **port 5000**
-* To rename the just replace all PickupAPI entries with the name of the project as well as the project root folder
+* To rename the just replace all pickupAPI entries with the name of the project as well as the project root folder

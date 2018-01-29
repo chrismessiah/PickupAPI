@@ -5,64 +5,64 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using PickupAPI;
-using PickupAPI.Data;
-using PickupAPI.Models;
-using PickupAPI.ViewModels;
+using pickupAPI;
+using pickupAPI.Data;
+using pickupAPI.Models;
+using pickupAPI.ViewModels;
 
-namespace PickupAPI.Controllers
+namespace pickupAPI.Controllers
 {
     [Route("api/[controller]")]
-    public class PickupsController : Controller
+    public class pickupsController : Controller
     {
         // *********** REQUIRED FOR DATABASE CALLS *********
-        private readonly PickupDbContext _context;
-        public PickupsController(PickupDbContext context) { _context = context; }
+        private readonly pickupDbContext _context;
+        public pickupsController(pickupDbContext context) { _context = context; }
         // *********** REQUIRED FOR DATABASE CALLS *********
 
-        // GET api/Pickups
+        // GET api/pickups
         [HttpGet]
-        public IEnumerable<PickupView> Get()
+        public IEnumerable<pickupView> Get()
         {
-            //return _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
-            var list = _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
-            return list.Select(e => new PickupView { Id=e.Id, Body = e.Body});
-            //return _context.Pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
+            //return _context.pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
+            var list = _context.pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
+            return list.Select(e => new pickupView { Id=e.Id, Body = e.Body});
+            //return _context.pickups.Where(t => t.ShowUntil >= DateTime.Now).ToList();
         }
 
-        // GET api/Pickups/5
+        // GET api/pickups/5
         [HttpGet("{id}")]
-        public PickupView Get(int id)
+        public pickupView Get(int id)
         {
-            return _context.Pickups.Select(e => new PickupView { Id = e.Id, Body = e.Body }).First(t => t.Id == id);
+            return _context.pickups.Select(e => new pickupView { Id = e.Id, Body = e.Body }).First(t => t.Id == id);
         }
 
-        // POST api/Pickups
+        // POST api/pickups
         [HttpPost]
-        public void Post([FromForm] Pickup Pickup)
+        public void Post([FromForm] pickup pickup)
         {
-            Pickup.ShowUntil = GetShowWindow();
-            _context.Pickups.Add(Pickup);
+            pickup.ShowUntil = GetShowWindow();
+            _context.pickups.Add(pickup);
             _context.SaveChanges();
         }
 
-        // PUT api/Pickups
+        // PUT api/pickups
         [HttpPut("{id}")]
-        public void Put(int id, [FromForm] Pickup Pickup)
+        public void Put(int id, [FromForm] pickup pickup)
         {
-            Pickup.Id = id;
-            Pickup.ShowUntil = GetShowWindow();
-            _context.Pickups.Update(Pickup);
+            pickup.Id = id;
+            pickup.ShowUntil = GetShowWindow();
+            _context.pickups.Update(pickup);
             _context.SaveChanges();
         }
 
-        // DELETE api/Pickups/5
+        // DELETE api/pickups/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             // Check if element exists
-            if ( _context.Pickups.Where(t => t.Id == id).Count() > 0 ) {
-                _context.Pickups.Remove(_context.Pickups.First(t => t.Id == id));
+            if ( _context.pickups.Where(t => t.Id == id).Count() > 0 ) {
+                _context.pickups.Remove(_context.pickups.First(t => t.Id == id));
                 _context.SaveChanges();
             }
         }

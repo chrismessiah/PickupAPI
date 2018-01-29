@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{D31DAFE0-F748-46EA-916A-DAF1828AA4D6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/PickupsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/pickupsController.cs">
     <Files>
-      <File FileName="Controllers/PickupsController.cs" Line="15" Column="8" />
+      <File FileName="Controllers/pickupsController.cs" Line="15" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.PickupAPI PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.ItemProperties.pickupAPI PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

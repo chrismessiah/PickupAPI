@@ -3,14 +3,14 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace PickupAPI.Migrations
+namespace pickupAPI.Migrations
 {
     public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Pickups",
+                name: "pickups",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,14 +19,14 @@ namespace PickupAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Pickups", x => x.Id);
+                    table.PrimaryKey("PK_pickups", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Pickups");
+                name: "pickups");
         }
     }
 }

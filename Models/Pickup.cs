@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations;
 * Data annotations for tell EntityFramework
 * how to treat the fields of each model.
 */
-namespace PickupAPI.Models
+namespace pickupAPI.Models
 {
-    public class Pickup
+    public class pickup
     {
         [Key] // Primary Key attribute
         public int Id { get; set; }

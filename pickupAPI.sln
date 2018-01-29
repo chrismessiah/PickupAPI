@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PickupAPI", "PickupAPI.csproj", "{D31DAFE0-F748-46EA-916A-DAF1828AA4D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pickupAPI", "pickupAPI.csproj", "{D31DAFE0-F748-46EA-916A-DAF1828AA4D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

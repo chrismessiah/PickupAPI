@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PickupAPI.Migrations
+namespace pickupAPI.Migrations
 {
     public partial class _2ndMigration : Migration
     {
@@ -10,7 +10,7 @@ namespace PickupAPI.Migrations
         {
             migrationBuilder.AddColumn<DateTime>(
                 name: "ShowUntil",
-                table: "Pickups",
+                table: "pickups",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
         }
@@ -19,7 +19,7 @@ namespace PickupAPI.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "ShowUntil",
-                table: "Pickups");
+                table: "pickups");
         }
     }
 }
