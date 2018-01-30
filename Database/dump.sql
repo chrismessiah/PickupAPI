@@ -35,10 +35,10 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: pickups; Type: TABLE; Schema: public; Owner: -
+-- Name: Pickups; Type: TABLE; Schema: public; Owner: -
 --
 
-CREATE TABLE "pickups" (
+CREATE TABLE "Pickups" (
     "Id" integer NOT NULL,
     "Body" character varying(10000) NOT NULL,
     "ShowUntil" timestamp without time zone DEFAULT '0001-01-01 00:00:00'::timestamp without time zone NOT NULL
@@ -56,10 +56,10 @@ CREATE TABLE "__EFMigrationsHistory" (
 
 
 --
--- Name: pickups_Id_seq; Type: SEQUENCE; Schema: public; Owner: -
+-- Name: Pickups_Id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
-CREATE SEQUENCE "pickups_Id_seq"
+CREATE SEQUENCE "Pickups_Id_seq"
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -69,24 +69,24 @@ CREATE SEQUENCE "pickups_Id_seq"
 
 
 --
--- Name: pickups_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+-- Name: Pickups_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
-ALTER SEQUENCE "pickups_Id_seq" OWNED BY "pickups"."Id";
-
-
---
--- Name: pickups Id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY "pickups" ALTER COLUMN "Id" SET DEFAULT nextval('"pickups_Id_seq"'::regclass);
+ALTER SEQUENCE "Pickups_Id_seq" OWNED BY "Pickups"."Id";
 
 
 --
--- Data for Name: pickups; Type: TABLE DATA; Schema: public; Owner: -
+-- Name: Pickups Id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-COPY "pickups" ("Id", "Body", "ShowUntil") FROM stdin;
+ALTER TABLE ONLY "Pickups" ALTER COLUMN "Id" SET DEFAULT nextval('"Pickups_Id_seq"'::regclass);
+
+
+--
+-- Data for Name: Pickups; Type: TABLE DATA; Schema: public; Owner: -
+--
+
+COPY "Pickups" ("Id", "Body", "ShowUntil") FROM stdin;
 10030	Are you a parking ticket? ‘Cause you’ve got fine written all over you.	2078-01-27 09:36:35.722797
 10066	There must be something wrong with my eyes, I can’t take them off you.	2078-01-27 09:36:35.742731
 10059	Do you have a pencil? Cause I want to erase your past and write our future.	2078-01-27 09:36:35.74945
@@ -157,10 +157,10 @@ COPY "__EFMigrationsHistory" ("MigrationId", "ProductVersion") FROM stdin;
 
 
 --
--- Name: pickups_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
+-- Name: Pickups_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
-SELECT pg_catalog.setval('"pickups_Id_seq"', 79, true);
+SELECT pg_catalog.setval('"Pickups_Id_seq"', 79, true);
 
 
 --
@@ -172,11 +172,11 @@ ALTER TABLE ONLY "__EFMigrationsHistory"
 
 
 --
--- Name: pickups PK_pickups; Type: CONSTRAINT; Schema: public; Owner: -
+-- Name: Pickups PK_Pickups; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY "pickups"
-    ADD CONSTRAINT "PK_pickups" PRIMARY KEY ("Id");
+ALTER TABLE ONLY "Pickups"
+    ADD CONSTRAINT "PK_Pickups" PRIMARY KEY ("Id");
 
 
 --

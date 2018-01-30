@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
-using pickupAPI.Data;
+using PickupAPI.Data;
 using System;
 
-namespace pickupAPI.Migrations
+namespace PickupAPI.Migrations
 {
-    [DbContext(typeof(pickupDbContext))]
+    [DbContext(typeof(PickupDbContext))]
     [Migration("20180127080238_First Migration")]
     partial class FirstMigration
     {
@@ -21,7 +21,7 @@ namespace pickupAPI.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
-            modelBuilder.Entity("pickupAPI.Models.pickup", b =>
+            modelBuilder.Entity("PickupAPI.Models.Pickup", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -32,7 +32,7 @@ namespace pickupAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("pickups");
+                    b.ToTable("Pickups");
                 });
 #pragma warning restore 612, 618
         }
