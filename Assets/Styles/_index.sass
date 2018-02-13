@@ -128,11 +128,13 @@ body
         margin-left: 10px
         font-weight: 700
       #code-invalid
-        display: none
+        opacity: 0
         color: red
         font-weight: 600
+        display: block
+        @extend .linear-transition
         &.show
-          display: block
+          opacity: 1
       #send-button
         @extend .linear-transition
         height: inherit
