@@ -4,7 +4,8 @@ module.exports = function(route, errorCallback) {
   $.ajax(route, {
     type: 'DELETE',
     success: function(data) {
-      responseText.innerHTML = data || `request OK`;
+      responseText.innerHTML = `request OK`;
+      responseContainer.classList.add('small');
       responseContainer.classList.remove("hidden");
       scrollTo('#response-container');
     },

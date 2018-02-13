@@ -2,7 +2,7 @@ var scrollTo = require('./scroll-to.js');
 
 module.exports = function(route, errorCallback) {
   try {
-    var sendObj = getFlaskFields(['title', 'body']);
+    var sendObj = getFlaskFields(['body']);
   } catch (e) {
     alert(e)
     return;
@@ -12,7 +12,8 @@ module.exports = function(route, errorCallback) {
     type: 'POST',
     data: sendObj,
     success: function(data) {
-      responseText.innerHTML = data || `request OK`;
+      responseText.innerHTML = `request OK`;
+      responseContainer.classList.add('small');
       responseContainer.classList.remove("hidden");
       scrollTo('#response-container');
     },

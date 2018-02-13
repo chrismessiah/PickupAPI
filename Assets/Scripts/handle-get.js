@@ -6,7 +6,9 @@ module.exports = function(route, errorCallback) {
     success: function(data) {
       if (data) {
         responseText.innerHTML = Prism.highlight(JSON.stringify(data, undefined, 2), Prism.languages.json);
+        responseContainer.classList.remove('small');
       } else {
+        responseContainer.classList.add('small');
         responseText.innerHTML = 'request OK';
       }
 

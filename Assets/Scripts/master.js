@@ -20,7 +20,6 @@ window.flaskPOSTstandard = {
 };
 
 window.flaskPUTstandard = {
-  id: 10030,
   body: "Roses are red, Violets are blue, sugar is sweet, And so are you.",
 };
 
