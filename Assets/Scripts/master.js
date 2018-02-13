@@ -1,4 +1,5 @@
 window.Prism = require('prismjs');
+require('prismjs/components/prism-json');
 window.CodeFlask = require('codeflask');
 window.$ = require('jquery');
 

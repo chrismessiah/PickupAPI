@@ -152,35 +152,32 @@ body
           background-color: #f1f4f7 !important
           color: #ccced1 !important
   #response-container
-    background-color: #3FB78A
+    background-color: #fff
     border-radius: 4px
     box-shadow: 0px 2px 4px 0px rgba(50, 50, 93, .1)
     margin-bottom: 50px
+    position: relative
+    margin-left: 10px
+    margin-right: 10px
+    width: 90vw
+    @media screen and (min-width: 600px)
+      width: 80vw
+    @media screen and (min-width: 800px)
+      width: 850px
     &.hidden
       display: none
     #response-bottom
-      width: 90vw
-      max-width: 700px
+      width: 100%
       height: 250px
     #response
-      width: 90vw
-      max-width: 700px
+      width: 100%
       min-height: 150px
-      // max-height: 600px
       pre
-        color: white
         font-size: 14px
-        margin-top: 10px
-        margin-left: 10px
-        margin-right: 10px
-        margin-bottom: 0
-        min-height: 150px
-        // max-height: 600px
-        word-wrap: break-word
         overflow-x: scroll
     #response-bottom
       height: 40px
-      background-color: #6BCDA8
+      background-color: #f6f9fc
       border-bottom-left-radius: 4px
       border-bottom-right-radius: 4px
       display: flex
@@ -188,6 +185,6 @@ body
       margin-top: 10px
       span
         font-family: 'Open Sans', sans-serif
-        color: white
+        color: #414770
         font-weight: bold
         margin-left: 10px
