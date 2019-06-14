@@ -1,6 +1,10 @@
 # PickupAPI
 
-Dockerized .NET Core 2.0.x Razor app boilerplate with Postgres, Gulp, Sass, ES6, custom .env vars and more
+A Pick Up Line API built with .NET Core in an excuse to explore the realm of Microsoft. Using my boilerplate for Dockerized .NET Core 2.0.x Razor app boilerplate with Postgres, Gulp, Sass, ES6, custom .env vars and more. 
+
+## Preview
+
+![Preciew of Pickup API](docs/gh-images/preview.jpeg)
 
 ## Imperfections
 
